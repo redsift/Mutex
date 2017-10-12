@@ -238,7 +238,7 @@ public class Mutex {
 
     @discardableResult
     public func setPriorityCeiling(_ ceiling: Int) throws -> Int {
-        var oldCeiling = CInt.allZeros
+        var oldCeiling = 0
 
         let returnCode = pthread_mutex_setprioceiling(&mutex, CInt(ceiling), &oldCeiling)
 
@@ -250,7 +250,7 @@ public class Mutex {
     }
 
     public func getPriorityCeiling() throws -> Int {
-        var ceiling = CInt.allZeros
+        var ceiling = 0
 
         let returnCode = pthread_mutex_getprioceiling(&mutex, &ceiling)
 
